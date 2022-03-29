@@ -50,8 +50,8 @@ export default {
   },
 
   serverMiddleware: [
-    '~/server/index.js'
-    // '~/api/index.js'
+    // '~/server/index.js'
+    '~/api/index.js'
   ],
 
 // -------------------------------------

@@ -6,7 +6,7 @@ app.get('/', function (req, res) {
 })
 
 app.get('/hello', (req, res) => {
-    res.send({title:'Hello World!'})
+    res.json({title:'Hello World!'})
   })
 
 // Export the server middleware
