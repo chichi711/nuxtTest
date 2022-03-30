@@ -1,16 +1,22 @@
-const express = require('express')
-const app = express()
+const bodyParser = require('body-parser')
+const app = require('express')()
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
+const sqlite3 = require('sqlite3');
+let db = new sqlite3.Database(__dirname+'/../database/db.sqlite',sqlite3.OPEN_READWRITE,function(err){
+    if(err){
+        console.log(__dirname);
+        console.log(err);
+    }
+});
+
+const usersmodel = require(__dirname+'/../models/users.js');
+
+
+app.use(bodyParser.json())
+app.all('/users', async (req, res) => {
+  const usersdb = new usersmodel(db);
+  const users = await usersdb.findUsers();
+  res.json({ users: users })
 })
 
-app.get('/hello', (req, res) => {
-    res.json({title:'Hello World!'})
-  })
-
-// Export the server middleware
-module.exports = {
-  path: '/api',
-  handler: app
-}
+module.exports = app
