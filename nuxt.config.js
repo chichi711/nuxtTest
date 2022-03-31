@@ -44,6 +44,7 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     '@nuxt/http',
+    '@nuxtjs/proxy',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -57,6 +58,25 @@ export default {
       path:'/api',handler:'~/api/index.js'
     }
   ],
+
+  axios: {
+    proxy: true,
+  },
+  proxy: {
+    '/api': {
+      target: 'http://localhost:3001',
+      // target: 'http://192.168.31.218:3001',
+      // pathRewrite: {
+      //   '^/api': '/',
+      //   changeOrigin: true
+      // }
+    }
+  },
+
+  server: {
+    port: 3000,
+    host: 'localhost'
+  },
 
 // -------------------------------------
   // loading 寫法 : https://ithelp.ithome.com.tw/articles/10205496

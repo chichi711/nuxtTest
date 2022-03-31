@@ -14,9 +14,10 @@ const usersmodel = require(__dirname+'/../models/users.js');
 
 app.use(bodyParser.json())
 app.all('/users', async (req, res) => {
-  const usersdb = new usersmodel(db);
+        console.log(__dirname);
+        const usersdb = new usersmodel(db);
   const users = await usersdb.findUsers();
-  res.json({ users: users })
+  res.json({ data: users })
 })
 
 module.exports = app
