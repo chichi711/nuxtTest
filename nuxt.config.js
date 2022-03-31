@@ -16,6 +16,14 @@ export default {
       { property: 'og:site_name', content: '77電商' },
       { property: 'og:locale', content: 'zh_TW' }
     ],
+    script: [
+      {
+        src: '/admin_assets/plugins/jquery/jquery.min.js',
+        src: '/admin_assets/plugins/bootstrap/js/bootstrap.bundle.min.js',
+        src: '/admin_assets/js/adminlte.min.js',
+        src: '/admin_assets/plugins/sweetalert2/sweetalert2.all.min.js',
+      }
+    ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.3.1/css/all.css', integrity: 'sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU', crossorigin: 'anonymous' },
