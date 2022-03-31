@@ -64,8 +64,7 @@ export default {
   },
   proxy: {
     '/api': {
-      target: 'http://localhost:3001',
-      // target: 'http://192.168.31.218:3001',
+      target: 'http://localhost:3000',
       // pathRewrite: {
       //   '^/api': '/',
       //   changeOrigin: true
